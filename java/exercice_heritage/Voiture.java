@@ -1,49 +1,71 @@
-public class Voiture extends Vehicule {
-	private int nombrePlaces;
-	private int vitesseMax;
-	private int nombreRapportsVitesse;
-	private int nombreChevaux;
+/**
+ * @(#)Voiture.java
+ *
+ *
+ * @author
+ * @version 1.00 2026/10/6
+ */
 
-    public Voiture(String m, int a, double p, int places, int vMax, int rapports, int chevaux) {
-    	super(m, a, p);
-    	this.nombrePlaces=places;
-    	this.vitesseMax=vMax;
-    	this.nombreRapportsVitesse=rapports;
-    	this.nombreChevaux=chevaux;
+
+public class Voiture extends Vehicule {
+    private int nbrePlaces;
+    private int vitesseMax;
+    private int nombreRapportsVitesse;
+    private int nombreChevaux;
+
+    public Voiture(String matr, String mr, int a, int np) {
+        super(mr, matr, a);
+        this.nbrePlaces=np;
+    }
+    public Voiture(String mr, String mtr, int vm){
+        super(mr, mtr);
+        this.vitesseMax=vm;
+    }
+    public Voiture(int a, int np){
+        super(a);
+        this.nbrePlaces=np;
+    }
+    public Voiture(String matr, String mr, int a, int np, int vm, int nr, int nc) {
+        super(mr, matr, a);
+        this.nbrePlaces=np;
+        this.vitesseMax=vm;
+        this.nombreRapportsVitesse=nr;
+        this.nombreChevaux=nc;
     }
 
-    public int getNombrePlaces(){
-    	return this.nombrePlaces;
+    // Getters
+    public int getNbrePlaces(){
+        return this.nbrePlaces;
     }
     public int getVitesseMax(){
-    	return this.vitesseMax;
+        return this.vitesseMax;
     }
     public int getNombreRapportsVitesse(){
-    	return this.nombreRapportsVitesse;
+        return this.nombreRapportsVitesse;
     }
     public int getNombreChevaux(){
-    	return this.nombreChevaux;
+        return this.nombreChevaux;
     }
 
-    public void setNombrePlaces(int places){
-    	this.nombrePlaces=places;
+    // Setters
+    public void setNbrePlaces(int np){
+        this.nbrePlaces=np;
     }
-    public void setVitesseMax(int vMax){
-    	this.vitesseMax=vMax;
+    public void setVitesseMax(int vm){
+        this.vitesseMax=vm;
     }
-    public void setNombreRapportsVitesse(int rapports){
-    	this.nombreRapportsVitesse=rapports;
+    public void setNombreRapportsVitesse(int nr){
+        this.nombreRapportsVitesse=nr;
     }
-    public void setNombreChevaux(int chevaux){
-    	this.nombreChevaux=chevaux;
+    public void setNombreChevaux(int nc){
+        this.nombreChevaux=nc;
     }
 
+    // Les attributs de Vehicule sont prives : on passe par les getters
     @Override
     public void afficher(){
-    	super.afficher();
-    	System.out.println("Nombre de places : "+this.nombrePlaces);
-    	System.out.println("Vitesse max : "+this.vitesseMax+" km/h");
-    	System.out.println("Nombre de rapports : "+this.nombreRapportsVitesse);
-    	System.out.println("Nombre de chevaux : "+this.nombreChevaux+" ch");
+        System.out.println("Marque : "+getMarq()+" Matricule :"+getMatr()+" Annee : "+getAnnee()+" Age : "+calculerAge()+" ans"
+            +" Nombre de Places ="+this.nbrePlaces+" Vitesse Max ="+this.vitesseMax
+            +" Rapports ="+this.nombreRapportsVitesse+" Chevaux ="+this.nombreChevaux);
     }
 }

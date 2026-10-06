@@ -1,39 +1,46 @@
+/**
+ * @(#)TestVehicule.java
+ *
+ *
+ * @author
+ * @version 1.00 2026/10/6
+ */
+
+
 public class TestVehicule {
-    public static void main(String[] args) {
-    	// Creation de vehicules
-    	Vehicule v1 = new Vehicule("12345-A-1", 2015, 80000);
-    	Vehicule v2 = new Vehicule("67890-B-6", 2020, 120000);
+    public static void main(String [] args){
+        // a. Creer des vehicules et des voitures
+        Vehicule ve1 = new Vehicule("FIAT", "V1", 2015);
+        Vehicule ve2 = new Vehicule("RENAULT", "V2");
+        Voiture vo1 = new Voiture("V3", "FORD", 2018, 5, 180, 6, 110);
+        Voiture vo2 = new Voiture("BMW", "V4", 250);
+        Voiture vo3 = new Voiture(2022, 4);
+        Vehicule ve3 = new Voiture("V5", "AUDI", 2020, 5);
 
-    	// Creation de voitures
-    	Voiture c1 = new Voiture("11111-C-3", 2018, 150000, 5, 180, 6, 110);
-    	Voiture c2 = new Voiture("22222-D-9", 2022, 300000, 2, 250, 7, 300);
+        // b. Appeler les differentes methodes
+        System.out.println("=== afficher() ===");
+        ve1.afficher();
+        ve2.afficher();
+        vo1.afficher();
+        vo2.afficher();
+        vo3.afficher();
+        ve3.afficher(); // c'est afficher() de Voiture qui est appelee
 
-    	System.out.println("=== Vehicule 1 ===");
-    	v1.afficher();
-    	System.out.println("\n=== Vehicule 2 ===");
-    	v2.afficher();
+        System.out.println("\n=== Getters ===");
+        System.out.println("Marque de ve1 : "+ve1.getMarq());
+        System.out.println("Age de ve1 : "+ve1.calculerAge()+" ans");
+        System.out.println("Matricule de vo1 : "+vo1.getMatr());
+        System.out.println("Vitesse max de vo1 : "+vo1.getVitesseMax());
+        System.out.println("Chevaux de vo1 : "+vo1.getNombreChevaux());
 
-    	System.out.println("\n=== Voiture 1 ===");
-    	c1.afficher();
-    	System.out.println("\n=== Voiture 2 ===");
-    	c2.afficher();
-
-    	// Test des getters et setters
-    	System.out.println("\n=== Modification avec les setters ===");
-    	v1.setPrix(75000);
-    	v1.setAnnee(2016);
-    	System.out.println("Nouveau prix de v1 : "+v1.getPrix());
-    	System.out.println("Nouvel age de v1 : "+v1.calculerAge()+" ans");
-
-    	c1.setVitesseMax(200);
-    	c1.setNombreChevaux(130);
-    	System.out.println("Nouvelle vitesse max de c1 : "+c1.getVitesseMax()+" km/h");
-    	System.out.println("Nouveaux chevaux de c1 : "+c1.getNombreChevaux()+" ch");
-    	System.out.println("Matricule de c1 (methode heritee) : "+c1.getMatricule());
-
-    	// Polymorphisme : afficher() redefinie
-    	System.out.println("\n=== Polymorphisme ===");
-    	Vehicule v3 = c2;
-    	v3.afficher();
+        System.out.println("\n=== Setters ===");
+        ve2.setAnnee(2010);
+        vo3.setMarq("PEUGEOT");
+        vo3.setMatr("V6");
+        vo3.setVitesseMax(190);
+        vo3.setNombreRapportsVitesse(5);
+        vo3.setNombreChevaux(90);
+        ve2.afficher();
+        vo3.afficher();
     }
 }
